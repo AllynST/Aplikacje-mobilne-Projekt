@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
         
     },
     gameRow:{
+        padding: 4,
         flex:1,
         
         flexDirection:'row',
@@ -28,6 +29,8 @@ const styles = StyleSheet.create({
         borderColor:'#E3E3E3',
         width:50,
         height:50,
+        textAlign:'center',
+        lineHeight:50,
         
         alignItems: 'center',
         justifyContent: 'center',      

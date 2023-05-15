@@ -10,13 +10,18 @@ const GameArea = () =>{
 
     
 
+    const [changeFlag,setChangeFlag] = useState(false)
 
+
+    renderHandler = () =>{
+        console.log(changeFlag)
+        setChangeFlag(!changeFlag)
+    }
 
     return(
-    <View style={{flex:1,flexDirection:'column'}}>
-       
-        <GameBoard game={game} />
-        <GameKeyboard game={game} />
+    <View style={{flex:1,flexDirection:'column'}}>       
+        <GameBoard game={game}  />
+        <GameKeyboard game={game} renderHandler={renderHandler} />
     </View>
     )
 }

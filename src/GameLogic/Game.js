@@ -29,14 +29,33 @@ constructor(){
 
 
     addLetterToRow = (letter) => {
+        
     this.Board[this.currentRow][this.currentLetter] = letter;
-    if(this.currentLetter>5) return;
+    if(this.currentLetter>3) return;
+    console.log(this.currentLetter)
     this.currentLetter++;
+
+    }
+    submitRow = (letter) =>{
+        console.log("row submit attempt")
+        if(this.currentLetter <4) return      
+        console.log("row submited")  
+        this.currentRow++
+        this.currentLetter = 0;
     }
 
-    removeLetter = () =>{
-        this.Board[this.currentRow][this.currentLetter] = " ";
+    removeLetter = (letter) =>{
+        let curr = this.Board[this.currentRow][this.currentLetter]
+        if(this.currentLetter == 0) return    
+        if(curr === " "){
+            this.Board[this.currentRow][this.currentLetter-1] = " ";
+        }  
+        else{
+            this.Board[this.currentRow][this.currentLetter] = " ";
+        }        
+        
         this.currentLetter--;
+        
     }
 }
 
