@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
        
     
     },
-    gameBoardSquare:{
+    gameBoardSquare:(color)=>({
         borderWidth:1,
         borderRadius:5,
         borderColor:'#E3E3E3',
@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
         
         alignItems: 'center',
         justifyContent: 'center',      
-        backgroundColor: 'white',
-    },
+        backgroundColor: color === undefined ? 'white' : color,
+    }),
     keyboardRow:{
         
         flex:1,
@@ -61,6 +61,23 @@ const styles = StyleSheet.create({
       
     }
   });
+
+//   export const squareStyle = (color) =  StyleSheet.create({    
+//     gameBoardSquare:{
+//         borderWidth:1,
+//         borderRadius:5,
+//         borderColor:'#E3E3E3',
+//         width:50,
+//         height:50,
+//         textAlign:'center',
+//         lineHeight:50,        
+//         alignItems: 'center',
+//         justifyContent: 'center',      
+//         backgroundColor: color === undefined ? 'white' : color,
+//     }
+  
+//   });
+
 
 
 
