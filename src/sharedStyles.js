@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
        
     
     },
+    
     gameBoardSquare:(color)=>({
         borderWidth:1,
         borderRadius:5,
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
      
       
     },
+   
     popupContainer: {
         flex: 1,
         justifyContent: 'center',

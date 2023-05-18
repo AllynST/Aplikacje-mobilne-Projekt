@@ -4,7 +4,7 @@ function MainMenu({navigation}){
     return(
         <View>
 
-        <Text>Wordle</Text>
+        <Text >Wordle</Text>
        
         <Button 
         onPress = {()=>{navigation.navigate("GamePage")}}

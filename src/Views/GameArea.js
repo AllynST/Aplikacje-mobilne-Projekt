@@ -9,10 +9,13 @@ import WinBoard from '../Components/WinBoard';
 const GameArea = ({ navigation }) => {
     const [game, newGame] = useState(new Game());
 
-
+    const [word, setWords] = useState([]);
 
     const [changeFlag, setChangeFlag] = useState(false)
+    useEffect(() => {
+       game.wordFetcher();
 
+      }, []);
 
     renderHandler = () => {
         console.log(changeFlag)
@@ -21,7 +24,7 @@ const GameArea = ({ navigation }) => {
 
     return (
         <View  style={{ flex: 1, flexDirection: 'column' }} >
-            <GameBoard game={game} />
+            <GameBoard game={game}/>
             <WinBoard  game={game} pop={navigation} />
             <GameKeyboard  game={game} renderHandler={renderHandler} />
         </View>
