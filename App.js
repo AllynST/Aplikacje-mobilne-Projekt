@@ -9,20 +9,34 @@ import GameArea from './src/Views/GameArea';
 import SettingsPage from './src/Views/SettingsPage';
 import HistoryPage from './src/Views/HistoryPage';
 
+import { useState, useEffect } from "react";
 
 export default function App() {
-  
+
+  const [word, setWords] = useState([]);
+
+  const getData = () => {
+    fetch("http://10.0.2.2:8000/words")
+      .then((response) => response.json())
+      .then((result) => setWords(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log(word)
   const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={MainMenu} />
-        <Stack.Screen name="GamePage" component={GameArea} />
-        <Stack.Screen name="AboutPage" component={AboutPage} />
+        <Stack.Screen name="GamePage"  component={GameArea} />
+        <Stack.Screen name="AboutPage"  component={AboutPage} />
         <Stack.Screen name="SettingsPage" component={SettingsPage} />
         <Stack.Screen name="HistoryPage" component={HistoryPage} />
-        
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -35,4 +49,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });

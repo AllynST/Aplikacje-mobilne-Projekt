@@ -1,129 +1,50 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import styles from '../sharedStyles'
 
-
 const LetterState = {
     GoodPosition: "green",
     BadPosition: "yellow",
     BadLetter: "gray"
 }
-let RdyToColor = false
+
 class Game {
     Board = [[]];
-    ResultBoard = [[], [], [], [], []];
-
     CorrectWord = "TOMEK";
     currentRow = 0;
     currentLetter = 0;
 
+
     constructor() {
+
+        this.hidePopupWindow();
         for (let i = 0; i < 6; i++) {
             this.Board.push([])
-            for(let j = 0; j < 5; j++) {
+            for (let j = 0; j < 5; j++) {
                 this.Board[i].push(new LetterBox(" "));
             }
-            
+
         };
         this.returnCurrentBoardJSX()
         // console.log(this.Board)
     }
 
-    // returnCurrentBoardJSX = () => {
 
-    //     // if (this.ResultBoard[this.currentRow][this.currentLetter] == undefined) {
-    //     return this.Board.map(row =>
-    //         <View style={styles.gameRow}>
-    //             {row.map(letter => <Text style={styles.gameBoardSquare}>{letter}</Text>)}
-    //         </View>
-    //     );
-
-    // }
     returnCurrentBoardJSX = () => {
-       
-        // if (RdyToColor) {
-        //     RdyToColor = false
-        //     // const result = this.ResultBoard[this.currentRow][this.currentLetter];
-        //     // const tileColor = result.state === undefined ?"grey" : result.state
-         
-        //     // console.log("teraz!!!!!!!!!!!!!!!!!!!!")
-        //     // return this.Board.map((row) => (
-        //     //     <View style={styles.gameRow}>
-        //     //         {row.map(letter => <Text style={[styles.gameBoardSquare, { backgroundColor: tileColor }]}>{letter}</Text>)}
+        return this.Board.map((row) => (
+            <View style={styles.gameRow} key={`${Math.floor(Math.random() * 100000)}`}>
 
-        //     //     </View>
-        //     // ));
-        //     // return this.Board.map((row,index) => (
-        //     //     <View style={styles.gameRow} >
-        //     //         {
-        //     //             index==this.currentRow?console.log(row):console.log("nie")
+                {row.map(letterBox => <Text key={`${Math.floor(Math.random() * 100000)}`} style={styles.gameBoardSquare(letterBox.state)}>{letterBox.letter}</Text>)}
 
-          
-        //     //         }  
-        //     //         {/* {row.map((letter, letterIndex) => {
-        //     //             if(index===this.currentRow){
-        //     //                 console.log(row)
-        //     //             }
-        //     //             // if(letter)
-        //     //             // console.log(letter+"   "+letterIndex)
-        //     //             // const result = this.ResultBoard[this.currentRow][letterIndex];
-        //     //             // console.log("-------------------" + result.state)
-        //     //             // let tileColor=""
-        //     //             // if(result!==undefined)
-        //     //             // {
-        //     //             //     tileColor=result.state
-        //     //             //     console.log(tileColor)
-        //     //             // }
-        //     //             // return (
-        //     //             //     <Text style={[styles.gameBoardSquare, { backgroundColor: `${tileColor}` }]} key={letterIndex}>
-        //     //             //         {letter}
-        //     //             //     </Text>
-        //     //             // );
-        //     //         })} */}
-        //     //     </View>
-        //     return this.Board.map((row) => (
-        //         <View style={styles.gameRow} >
-        //             {console.log(this.Board)}
-        //             {row.map((letter,index) => <Text style={[styles.gameBoardSquare, { backgroundColor: row[index].state }]}>{letter}</Text>)}
+            </View>
+        ));
 
-        //         </View>
-        //     ));
-        // } else {
-           
-           
-            // return this.Board.map((row) => (
-                
-               
-            //     <View style={styles.gameRow} >
-            //         {console.log(this.currentRow)}
-            //         {`TESTING: ${console.log(row[0])}`}
-            //         {row.map(letterBox => <Text style={styles.gameBoardSquare(letterBox.letter.state)}>{letterBox.letter}</Text>)}
-
-            //     </View>
-            // ));
-            return this.Board.map((row) => (
-                
-               
-                <View style={styles.gameRow} >
-                    
-                    {row.map(letterBox => <Text style={styles.gameBoardSquare(letterBox.state)}>{letterBox.letter}</Text>)}
-
-                </View>
-            ));
-        
-            // return this.Board.map((row) => (
-            //     <View style={styles.gameRow} >
-            //         {row.map(letter => <Text style={{ backgroundColor: 'cyan' }}>{letter}</Text>)}
-
-            //     </View>
-            // ));
-        
 
     };
 
     addLetterToRow = (letter) => {
 
         this.Board[this.currentRow][this.currentLetter].letter = letter;
-        if (this.currentLetter > 3) return;    
+        if (this.currentLetter > 3) return;
         this.currentLetter++;
 
     }
@@ -141,27 +62,33 @@ class Game {
 
     CheckWord = (row) => {
 
+        let Point = 0;
         for (let index = 0; index < row.length; index++) {
 
             const CorrectLetter = this.CorrectWord[index]
 
             if (row[index].letter === CorrectLetter) {
                 this.Board[this.currentRow][index].state = LetterState.GoodPosition
-                console.log(this.Board[this.currentRow][index].state)
-               // this.ResultBoard[this.currentRow][index] = { letter: CorrectLetter, state: LetterState.GoodPosition }
+                Point++;
             } else if (this.CorrectWord.includes(row[index].letter)) {
                 this.Board[this.currentRow][index].state = LetterState.BadPosition
-              //  this.ResultBoard[this.currentRow][index] = { letter: UserLetter, state: LetterState.BadPosition }
             } else {
                 this.Board[this.currentRow][index].state = LetterState.BadLetter
-                //this.ResultBoard[this.currentRow][index] = { letter: UserLetter, state: LetterState.BadLetter }
             }
             console.log(LetterState.BadLetter)
-            console.log(`correct: ${CorrectLetter} || target: ${row[index]} || state: ${this.Board[this.currentRow][index].state}`) 
+            console.log(`correct: ${CorrectLetter} || target: ${row[index]} || state: ${this.Board[this.currentRow][index].state}`)
 
         }
-       // console.log(this.Board[this.currentRow].state)
-        RdyToColor = true
+        if (Point === 5) {
+            this.showPopupWindow();
+        }
+    }
+    showPopupWindow = () => {
+        this.isPopupVisible = true;
+    }
+
+    hidePopupWindow = () => {
+        this.isPopupVisible = false;
     }
     removeLetter = (letter) => {
         let curr = this.Board[this.currentRow][this.currentLetter]
@@ -181,16 +108,16 @@ class Game {
 export default Game;
 
 
-class LetterBox{
+class LetterBox {
     state = LetterState.BadLetter
     letter = " "
 
-    constructor(letter){
+    constructor(letter) {
         this.letter = letter;
     }
 
 
-    changeState(LetterState){
+    changeState(LetterState) {
         this.state = LetterState
     }
 }

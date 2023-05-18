@@ -59,7 +59,34 @@ const styles = StyleSheet.create({
         borderRadius:2,
      
       
-    }
+    },
+    popupContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      },
+      popup: {
+        backgroundColor: '#FFF',
+        borderRadius: 5,
+        padding: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      popupText: {
+        fontSize: 18,
+        marginBottom: 10,
+      },
+      popupButton: {
+        backgroundColor: '#2196F3',
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 10,
+      },
+      popupButtonText: {
+        color: '#FFF',
+        fontSize: 16,
+      },
   });
 
 //   export const squareStyle = (color) =  StyleSheet.create({    
