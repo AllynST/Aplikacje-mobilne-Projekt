@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View ,Button , StatusBar} from 'react-native';
+import { View } from 'react-native';
 import styles from '../sharedStyles'
 
-const GameBoard = (props) =>{
+
+const GameBoard = (props) => {
 
 
-    return(
-   
-    <View style={styles.gameBoard}>
-    {props.game.returnCurrentBoardJSX()}
-    </View>
-  
-    
-    
+    return (
+        <View style={styles.gameBoard}>
+            <>
+                {/* {console.log(props.game.returnCurrentBoardJSX())} */}
+                {props.game.returnCurrentBoardJSX()}
+            </>
+        </View>
     )
 
 }

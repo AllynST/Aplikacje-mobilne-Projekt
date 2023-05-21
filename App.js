@@ -10,19 +10,21 @@ import SettingsPage from './src/Views/SettingsPage';
 import HistoryPage from './src/Views/HistoryPage';
 
 
+
 export default function App() {
-  
+
+
   const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={MainMenu} />
-        <Stack.Screen name="GamePage" component={GameArea} />
-        <Stack.Screen name="AboutPage" component={AboutPage} />
+        <Stack.Screen name="GamePage"  component={GameArea}/>
+        <Stack.Screen name="AboutPage"  component={AboutPage} />
         <Stack.Screen name="SettingsPage" component={SettingsPage} />
         <Stack.Screen name="HistoryPage" component={HistoryPage} />
-        
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -35,4 +37,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });
