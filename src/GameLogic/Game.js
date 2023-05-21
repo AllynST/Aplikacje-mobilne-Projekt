@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
-import styles from '../sharedStyles'
+import styles, { colorPalette } from '../sharedStyles'
 import { fetchWordList } from './helpers';
 
 
 const LetterState = {
-    GoodPosition: "green",
-    BadPosition: "yellow",
-    BadLetter: "gray"
+    GoodPosition: colorPalette.Correct,
+    BadPosition: colorPalette.Warning,
+    BadLetter: colorPalette.white
 }
 
 
@@ -53,8 +53,7 @@ class Game {
         this.currentLetter++;
 
     }
-    submitRow = (letter) => {
-        console.log("row submit attempt")
+    submitRow = (letter) => {       
         if (this.currentLetter < 4) return
         // console.log("row submited")
         this.CheckWord(this.Board[this.currentRow]);
@@ -68,7 +67,7 @@ class Game {
     CheckWord = (row) => {
 
         let Point = 0;
-        console.log("check word fired")
+        
         for (let index = 0; index < row.length; index++) {
 
             const CorrectLetter = this.CorrectWord[index]

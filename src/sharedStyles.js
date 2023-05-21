@@ -1,8 +1,20 @@
 import { StyleSheet } from 'react-native';
+
+export const colorPalette = {
+  "mainBackground": "#283044",
+  "keysColor": "#211A1E",
+  "Highlight":"#00E8FC",
+  "white":"#E3E3E3",
+  "Error":"#CC2936",
+  "Warning":"#FFF94F",
+  "Correct" :"#248232"
+}
+
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor:colorPalette.mainBackground,
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -27,7 +39,7 @@ const styles = StyleSheet.create({
     gameBoardSquare:(color)=>({
         borderWidth:1,
         borderRadius:5,
-        borderColor:'#E3E3E3',
+        borderColor:colorPalette.white,
         width:50,
         height:50,
         textAlign:'center',
@@ -35,7 +47,7 @@ const styles = StyleSheet.create({
         
         alignItems: 'center',
         justifyContent: 'center',      
-        backgroundColor: color === undefined ? 'white' : color,
+        backgroundColor: color === undefined ? colorPalette.white : color,
     }),
     keyboardRow:{
         
@@ -54,7 +66,7 @@ const styles = StyleSheet.create({
         flex:1,
         alignContent: 'center',
         justifyContent: 'center',      
-        backgroundColor: '#414a5e',
+        backgroundColor: colorPalette.keysColor,
         textAlign:'center',
         lineHeight:30,
         borderRadius:2,

@@ -8,7 +8,7 @@ export async function fetchWordList(){
             
         }).then(response => response.json()).catch(err=>console.log("error:",response))
        
-        return (await wordArray)[getRandomInt(wordArray.length-1)];
+        return (await wordArray)[getRandomInt(6)];
         
 }
 
