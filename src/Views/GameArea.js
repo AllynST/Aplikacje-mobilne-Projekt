@@ -5,20 +5,25 @@ import GameBoard from '../Components/GameBoard';
 import { useEffect, useState } from 'react';
 import Game from '../GameLogic/Game'
 import WinBoard from '../Components/WinBoard';
+import { fetchWordList } from '../GameLogic/helpers';
 
-const GameArea = ({ navigation }) => {
-    const [game, newGame] = useState(new Game());
 
-    const [word, setWords] = useState([]);
+const GameArea =({ navigation }) => {
+    const [game, newGame] = useState(new Game("start"));    
 
     const [changeFlag, setChangeFlag] = useState(false)
-    useEffect(() => {
-       game.wordFetcher();
-
-      }, []);
+    
+    useEffect(()=>{
+        console.log("test")
+        async function fetch(){
+            console.log("async fired")
+            newGame(new Game(await fetchWordList()))
+            
+        }
+        fetch()     
+    },[])
 
     renderHandler = () => {
-        console.log(changeFlag)
         setChangeFlag(!changeFlag)
     }
 

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import styles from '../sharedStyles'
+import { fetchWordList } from './helpers';
 
 
 const LetterState = {
@@ -17,10 +18,9 @@ class Game {
     currentLetter = 0;
 
 
-    constructor() {
-
-        CorrectWord = this.wordFetcher().toString();
-        // console.log(this.CorrectWord)
+    constructor(correctWord) {
+        console.log(correctWord)
+        this.CorrectWord = correctWord  
         this.hidePopupWindow();
         for (let i = 0; i < 6; i++) {
             this.Board.push([])
@@ -31,7 +31,6 @@ class Game {
         };
         this.returnCurrentBoardJSX()
 
-        // console.log(this.Board)
     }
 
 
@@ -55,12 +54,12 @@ class Game {
 
     }
     submitRow = (letter) => {
-        // console.log("row submit attempt")
+        console.log("row submit attempt")
         if (this.currentLetter < 4) return
         // console.log("row submited")
         this.CheckWord(this.Board[this.currentRow]);
-console.log(this.CorrectWord)
-        console.log(this.Board)
+        console.log(this.CorrectWord)
+        // console.log(this.Board)
         // console.log(this.ResultBoard)
         this.currentRow++;
         this.currentLetter = 0;
@@ -69,7 +68,7 @@ console.log(this.CorrectWord)
     CheckWord = (row) => {
 
         let Point = 0;
-        
+        console.log("check word fired")
         for (let index = 0; index < row.length; index++) {
 
             const CorrectLetter = this.CorrectWord[index]
@@ -82,8 +81,8 @@ console.log(this.CorrectWord)
             } else {
                 this.Board[this.currentRow][index].state = LetterState.BadLetter
             }
-            //console.log(LetterState.BadLetter)
-            //console.log(`correct: ${CorrectLetter} || target: ${(row[index].letter)} || state: ${this.Board[this.currentRow][index].state}`)
+           
+            console.log(`correct: ${CorrectLetter} || target: ${(row[index].letter)} || state: ${this.Board[this.currentRow][index].state}`)
 
         }
         if (Point === 5) {
@@ -109,15 +108,7 @@ console.log(this.CorrectWord)
 
         this.currentLetter--;
 
-    }
-    wordFetcher = async () => {
-        let wordArray = fetch("http://192.168.2.103:8000/words")
-            .then((response) => response.json())
-            .catch((error) => console.log("error", error));
-        //console.log(wordArray[Math.floor(Math.random()*wordArray.length)])
-        //console.log((await wordArray)[0])
-        this.CorrectWord = ((await wordArray)[Math.floor(Math.random()*7)])
-    };
+    } 
 }
 
 export default Game;
