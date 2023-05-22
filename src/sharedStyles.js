@@ -31,6 +31,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  containerSplashScreen: {
+    flex: 1,
+    gap: 15,
+    backgroundColor: colorPalette.mainBackground,
+    alignItems: 'center',
+    paddingTop:150
+  },
   mainHeader: {
     color: colorPalette.white,
     fontWeight: 'bold',
@@ -48,6 +55,20 @@ const styles = StyleSheet.create({
     padding: 15,
     width: 200,
     borderRadius: 15,
+
+  },
+  SpalshScreenNextBtn: {
+    backgroundColor: colorPalette.Highlight,
+    padding: 15,
+    width: 130,
+    borderRadius: 15,
+
+  },
+  SpalshScreenNextBtnTxt: {
+    textAlign: 'center',
+    color: colorPalette.backgroundColor,
+    fontWeight: 'bold',
+    fontSize: 25
 
   },
   mainMenuBtnTxt: {
@@ -85,7 +106,18 @@ const styles = StyleSheet.create({
 
 
   },
-
+  input: {
+    width: '80%',
+    height: 40,
+    backgroundColor:"#FFFFFF",
+    borderColor: '#CCCCCC',
+    borderWidth: 1,
+    borderRadius: 4,
+    marginBottom: 16,
+    paddingHorizontal: 8,
+    fontSize: 16,
+    color: '#333333',
+  },
   gameBoardSquare: (color) => ({
     borderWidth: 1,
     borderRadius: 5,
