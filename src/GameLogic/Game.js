@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
+import { addRecord } from './helpers';
 import styles, { colorPalette } from '../sharedStyles'
 import { fetchWordList } from './helpers';
 import GameLetterSquare from '../Components/GameLetterSquare';
+
 
 
 const LetterState = {
@@ -17,11 +19,12 @@ class Game {
     CorrectWord = "";
     currentRow = 0;
     currentLetter = 0;
-
-
-    constructor(correctWord) {
-        console.log(correctWord)
-        this.CorrectWord = correctWord  
+    checkRowCount = 0;
+    nickName;
+    constructor(correctWord, nickNameProp) {
+        console.log("constructor ", nickNameProp);
+        this.nickName = nickNameProp;
+        this.CorrectWord = correctWord;
         this.hidePopupWindow();
         for (let i = 0; i < 6; i++) {
             this.Board.push([])
@@ -54,13 +57,11 @@ class Game {
         this.currentLetter++;
 
     }
+
     submitRow = (letter) => {       
-        if (this.currentLetter < 4) return
-        // console.log("row submited")
-        this.CheckWord(this.Board[this.currentRow]);
-        console.log(this.CorrectWord)
-        // console.log(this.Board)
-        // console.log(this.ResultBoard)
+
+        if (this.currentLetter < 4) return     
+        this.CheckWord(this.Board[this.currentRow]);              
         this.currentRow++;
         this.currentLetter = 0;
     }
@@ -68,7 +69,6 @@ class Game {
     CheckWord = (row) => {
 
         let Point = 0;
-        
         for (let index = 0; index < row.length; index++) {
 
             const CorrectLetter = this.CorrectWord[index]
@@ -81,11 +81,14 @@ class Game {
             } else {
                 this.Board[this.currentRow][index].state = LetterState.BadLetter
             }
-           
-            console.log(`correct: ${CorrectLetter} || target: ${(row[index].letter)} || state: ${this.Board[this.currentRow][index].state}`)
+
+            // console.log(`correct: ${CorrectLetter} || target: ${(row[index].letter)} || state: ${this.Board[this.currentRow][index].state}`)
 
         }
+        this.checkRowCount++;
         if (Point === 5) {
+
+            addRecord({ "word": this.CorrectWord, "number": this.checkRowCount, "who": this.nickName })
             this.showPopupWindow();
         }
     }
@@ -108,7 +111,7 @@ class Game {
 
         this.currentLetter--;
 
-    } 
+    }
 }
 
 export default Game;

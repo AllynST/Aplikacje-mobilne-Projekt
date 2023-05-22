@@ -8,7 +8,10 @@ import AboutPage from './src/Views/AboutPage';
 import GameArea from './src/Views/GameArea';
 import SettingsPage from './src/Views/SettingsPage';
 import HistoryPage from './src/Views/HistoryPage';
+
+import SplashScreen from './src/Views/SplashScreen';
 import styles from './src/sharedStyles';
+
 
 
 export default function App() {
@@ -17,19 +20,27 @@ export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
-    <View style={styles.backgroundColor}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={MainMenu} />
-          <Stack.Screen name="GamePage"  component={GameArea}/>
-          <Stack.Screen name="AboutPage"  component={AboutPage} />
-          <Stack.Screen name="SettingsPage" component={SettingsPage} />
-          <Stack.Screen name="HistoryPage" component={HistoryPage} />
 
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
-    
+    <View style={styles.backgroundColor}>
+    <NavigationContainer>
+
+       
+      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Home" component={MainMenu} />
+        <Stack.Screen name="GamePage"  component={GameArea}/>
+        <Stack.Screen name="AboutPage"  component={AboutPage} />
+        <Stack.Screen name="SettingsPage" component={SettingsPage} />
+        <Stack.Screen name="HistoryPage" component={HistoryPage} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+ </View>
+
   );
 }
 
