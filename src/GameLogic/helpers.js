@@ -46,6 +46,34 @@ export async function GetHistory() {
     return await history;
 
 }
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
+}
+
+export function TopThreeAvg(history){
+
+    let averageObj = {}
+
+    history.forEach(record =>{
+       
+            
+            if(Object.keys(averageObj).includes(record.name)){
+                averageObj[record.name] = [...averageObj[record.name],record.tries]
+            }
+            else{
+                averageObj[record.name] = [record.tries]
+            }     
+        
+    })
+   
+        Object.keys(averageObj).forEach(record=>{
+            let count = averageObj[record].length
+            averageObj[record] = ((averageObj[record].reduce((prev,curr)=>prev+curr)/count)).toFixed(2)
+        })
+        
+        let result = Object.entries(averageObj).sort((a,b)=>a[1] - b[1]).slice(0,3)
+        
+        return result
+
 }

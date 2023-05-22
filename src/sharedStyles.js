@@ -14,9 +14,35 @@ export const colorPalette = {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      gap:15,
       backgroundColor:colorPalette.mainBackground,
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    mainHeader:{
+      color:colorPalette.white,
+      fontWeight:'bold',
+      fontSize:80
+      
+    },
+    secondaryHeader:{
+      color:colorPalette.white,
+      fontWeight:'bold',
+      fontSize:30,
+      opacity:0.7
+    },
+    mainMenuBtn:{
+      backgroundColor:colorPalette.Highlight,
+      padding:15,
+      width:200,
+      borderRadius:15,
+      
+    },
+    mainMenuBtnTxt:{
+      textAlign:'center',
+      color:colorPalette.backgroundColor,
+      fontWeight:'bold',
+      fontSize:25
     },
     backgroundColor:{
       flex:1,

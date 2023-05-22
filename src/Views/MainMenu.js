@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Button, StatusBar,Pressable } from 'react-native';
 import { colorPalette } from '../sharedStyles';
 import styles from '../sharedStyles'
 
@@ -7,31 +7,39 @@ function MainMenu({ navigation, route }) {
   return (
     <View style={styles.container}>
 
-        <Text>Wordle</Text>
-       
-        <Button
-        onPress={() => { navigation.navigate("GamePage", { nickname: nickname }) }}
-        title="Play now!"
-        color="#D7D3D3"
-        />
-        <Button 
-        onPress = {()=>{navigation.navigate("SettingsPage")}}
-        title="Settings"
-        color="#00E8FC"
-        />
-  
-       <Button 
-        onPress = {()=>{navigation.navigate("AboutPage")}}
-        title="About"
-        width="100"        
-        color="#00E8FC"
-        />   
-        <Button 
-        onPress = {()=>{navigation.navigate("HistoryPage")}}
-        title="History"
-        color="#00E8FC"
-        />         
+        <Text style={styles.mainHeader}>Wordle</Text>       
         
+        <View>
+        <Text style={styles.secondaryHeader}>Current player: {`${nickname}`}</Text>
+        </View>
+       
+        <Pressable onPress={()=>{ { navigation.navigate("GamePage", { nickname: nickname }) }}}>
+          <View style={styles.mainMenuBtn}>
+            <Text style={styles.mainMenuBtnTxt}>Play now!</Text>
+          </View>
+        </Pressable>
+
+        <Pressable onPress={()=>{ { navigation.navigate("SettingsPage") }}}>
+          <View style={styles.mainMenuBtn}>
+            <Text style={styles.mainMenuBtnTxt}>Settings</Text>
+          </View>
+        </Pressable>
+
+        <Pressable onPress={()=>{ { navigation.navigate("AboutPage") }}}>
+          <View style={styles.mainMenuBtn}>
+            <Text style={styles.mainMenuBtnTxt}>About</Text>
+          </View>
+        </Pressable>
+
+        <Pressable onPress={()=>{ { navigation.navigate("HistoryPage")}}}>
+          <View style={styles.mainMenuBtn}>
+            <Text style={styles.mainMenuBtnTxt}>History</Text>
+          </View>
+        </Pressable>
+
+        <View>
+            <Text style={{color:'white'}}>Tomasz Rożnowski & Łukasz Zaraska</Text>
+        </View>
         <StatusBar style="auto" />
       </View>
   )
@@ -39,3 +47,6 @@ function MainMenu({ navigation, route }) {
 
 
 export default MainMenu;
+
+
+

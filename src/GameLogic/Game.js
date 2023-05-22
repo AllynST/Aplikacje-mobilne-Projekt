@@ -22,7 +22,7 @@ class Game {
     checkRowCount = 0;
     nickName;
     constructor(correctWord, nickNameProp) {
-        console.log("constructor ", nickNameProp);
+        console.log("answear ", correctWord);
         this.nickName = nickNameProp;
         this.CorrectWord = correctWord;
         this.hidePopupWindow();
@@ -88,7 +88,7 @@ class Game {
         this.checkRowCount++;
         if (Point === 5) {
 
-            addRecord({ "word": this.CorrectWord, "number": this.checkRowCount, "who": this.nickName })
+            addRecord({ "word": this.CorrectWord, "tries": this.checkRowCount, "name": this.nickName })
             this.showPopupWindow();
         }
     }
