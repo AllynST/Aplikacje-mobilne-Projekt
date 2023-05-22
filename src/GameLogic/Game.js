@@ -5,11 +5,12 @@ import { fetchWordList } from './helpers';
 import GameLetterSquare from '../Components/GameLetterSquare';
 
 
-
 const LetterState = {
+    
     GoodPosition: colorPalette.Correct,
-    BadPosition: colorPalette.Warning,
-    BadLetter: colorPalette.white
+    BadPosition:  colorPalette.Warning,
+    BadLetter:  colorPalette.white
+    
 }
 
 
