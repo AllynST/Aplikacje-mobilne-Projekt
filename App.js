@@ -1,5 +1,5 @@
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as React from 'react';
 import MainMenu from './src/Views/MainMenu';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,7 +8,10 @@ import AboutPage from './src/Views/AboutPage';
 import GameArea from './src/Views/GameArea';
 import SettingsPage from './src/Views/SettingsPage';
 import HistoryPage from './src/Views/HistoryPage';
+
 import SplashScreen from './src/Views/SplashScreen';
+import styles from './src/sharedStyles';
+
 
 
 export default function App() {
@@ -17,6 +20,8 @@ export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
+
+    <View style={styles.backgroundColor}>
     <NavigationContainer>
 
        
@@ -34,15 +39,8 @@ export default function App() {
 
       </Stack.Navigator>
     </NavigationContainer>
+ </View>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-});

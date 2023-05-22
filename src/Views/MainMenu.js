@@ -1,39 +1,39 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
+import { colorPalette } from '../sharedStyles';
+import styles from '../sharedStyles'
 
 function MainMenu({ navigation, route }) {
   const { nickname } = route.params;
   return (
-    <View>
-      <View style={styles.container}>
+    <View style={styles.container}>
 
-
-      </View>
-      <Text style={styles.title}>Wordle</Text>
-
-      <Button
+        <Text>Wordle</Text>
+       
+        <Button
         onPress={() => { navigation.navigate("GamePage", { nickname: nickname }) }}
         title="Play now!"
         color="#D7D3D3"
-      />
-      <Button
-        onPress={() => { navigation.navigate("SettingsPage") }}
+        />
+        <Button 
+        onPress = {()=>{navigation.navigate("SettingsPage")}}
         title="Settings"
-        color="#D7D3D3"
-      />
-
-      <Button
-        onPress={() => { navigation.navigate("AboutPage") }}
+        color="#00E8FC"
+        />
+  
+       <Button 
+        onPress = {()=>{navigation.navigate("AboutPage")}}
         title="About"
-        color="#D7D3D3"
-      />
-      <Button
-        onPress={() => { navigation.navigate("HistoryPage") }}
+        width="100"        
+        color="#00E8FC"
+        />   
+        <Button 
+        onPress = {()=>{navigation.navigate("HistoryPage")}}
         title="History"
-        color="#D7D3D3"
-      />
-      <Text style={styles.welcomeText}>Your Nick: {nickname}</Text>
-      <StatusBar style="auto" />
-    </View>
+        color="#00E8FC"
+        />         
+        
+        <StatusBar style="auto" />
+      </View>
   )
 }
 const styles = StyleSheet.create({

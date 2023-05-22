@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
-import styles from '../sharedStyles'
 import { addRecord } from './helpers';
+import styles, { colorPalette } from '../sharedStyles'
+import { fetchWordList } from './helpers';
+import GameLetterSquare from '../Components/GameLetterSquare';
+
 
 
 const LetterState = {
-    GoodPosition: "green",
-    BadPosition: "yellow",
-    BadLetter: "gray"
+    GoodPosition: colorPalette.Correct,
+    BadPosition: colorPalette.Warning,
+    BadLetter: colorPalette.white
 }
 
 
@@ -39,7 +42,7 @@ class Game {
         return this.Board.map((row) => (
             <View style={styles.gameRow} key={`${Math.floor(Math.random() * 100000)}`}>
 
-                {row.map((letterBox) => <Text key={`${Math.floor(Math.random() * 100000)}`} style={styles.gameBoardSquare(letterBox.state)}>{letterBox.letter}</Text>)}
+                {row.map((letterBox) => <GameLetterSquare key={`${Math.floor(Math.random() * 100000)}`} letterBox ={letterBox}/>)}
 
             </View>
         ));
@@ -54,14 +57,11 @@ class Game {
         this.currentLetter++;
 
     }
-    submitRow = (letter) => {
-        // console.log("row submit attempt")
-        if (this.currentLetter < 4) return
-        // console.log("row submited")
-        this.CheckWord(this.Board[this.currentRow]);
-        console.log(this.CorrectWord)
-        // console.log(this.Board)
-        // console.log(this.ResultBoard)
+
+    submitRow = (letter) => {       
+
+        if (this.currentLetter < 4) return     
+        this.CheckWord(this.Board[this.currentRow]);              
         this.currentRow++;
         this.currentLetter = 0;
     }
@@ -69,7 +69,6 @@ class Game {
     CheckWord = (row) => {
 
         let Point = 0;
-        //  console.log("check word fired")
         for (let index = 0; index < row.length; index++) {
 
             const CorrectLetter = this.CorrectWord[index]
@@ -101,13 +100,13 @@ class Game {
         this.isPopupVisible = false;
     }
     removeLetter = (letter) => {
-        let curr = this.Board[this.currentRow][this.currentLetter]
+        let curr = this.Board[this.currentRow][this.currentLetter].letter
         if (this.currentLetter == 0) return
         if (curr === " ") {
-            this.Board[this.currentRow][this.currentLetter - 1] = " ";
+            this.Board[this.currentRow][this.currentLetter - 1].letter = " ";
         }
         else {
-            this.Board[this.currentRow][this.currentLetter] = " ";
+            this.Board[this.currentRow][this.currentLetter].letter = " ";
         }
 
         this.currentLetter--;
@@ -126,8 +125,4 @@ class LetterBox {
         this.letter = letter;
     }
 
-
-    changeState(LetterState) {
-        this.state = LetterState
-    }
 }

@@ -1,14 +1,14 @@
-export async function fetchWordList() {
+export async function fetchWordList(){   
 
-    let wordArray = fetch("http://192.168.2.109:8000/words", {
-        headers: {
-            "Content-Type": "text/plain;charset=UTF-8"
-        },
-        cache: "no-cache"
-
-    }).then(response => response.json()).catch(err => console.log("error:", response))
-
-    return (await wordArray)[getRandomInt(6)];
+        let wordArray = fetch("http://192.168.0.151:8000/words",{
+            headers: {               
+                "Content-Type": "text/plain;charset=UTF-8"
+              },
+           cache:"no-cache"
+            
+        }).then(response => response.json()).catch(err=>console.log("error:",response))
+       
+        return (await wordArray)[getRandomInt(6)];       
 
 }
 export async function addRecord(record) {
