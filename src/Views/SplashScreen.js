@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,TouchableHighlight } from 'react-native';
+import styles from '../sharedStyles'
 
 const SplashScreen = ({ navigation }) => {
   const [nickname, setNickname] = useState('');
@@ -10,42 +11,29 @@ const SplashScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcomeText}>Project: Wordly</Text>
-      <Text style={styles.welcomeText}>Łukasz Zaraska</Text>
-      <Text style={styles.welcomeText}>Tomasz Rożnowski</Text>
+    <View style={styles.containerSplashScreen}>
+      <Text style={styles.mainHeader}> Wordly</Text>
+      <Text style={styles.secondaryHeader}>Łukasz Zaraska</Text>
+      <Text style={styles.secondaryHeader}>Tomasz Rożnowski</Text>
       <TextInput
         style={styles.input}
         placeholder="Enter nick"
         value={nickname}
         onChangeText={setNickname}
       />
-      <Button title="Next" onPress={handleContinue} />
+     <TouchableHighlight
+  style={styles.SpalshScreenNextBtn}
+  onPress={handleContinue}
+  underlayColor="#DDDDDD"
+>
+  <Text style={styles.SpalshScreenNextBtnTxt}>Next</Text>
+</TouchableHighlight>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  welcomeText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 4,
-    marginBottom: 16,
-    paddingHorizontal: 8,
-  },
-});
+// const styles = StyleSheet.create({
+  
+// });
 
 export default SplashScreen;
