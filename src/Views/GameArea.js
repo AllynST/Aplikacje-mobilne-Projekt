@@ -6,19 +6,18 @@ import { useEffect, useState } from 'react';
 import Game from '../GameLogic/Game'
 import WinBoard from '../Components/WinBoard';
 import { fetchWordList } from '../GameLogic/helpers';
+import styles from '../sharedStyles'
 
 
 const GameArea =({ navigation }) => {
+    
     const [game, newGame] = useState(new Game("start"));    
 
     const [changeFlag, setChangeFlag] = useState(false)
     
-    useEffect(()=>{
-        console.log("test")
-        async function fetch(){
-            console.log("async fired")
-            newGame(new Game(await fetchWordList()))
-            
+    useEffect(()=>{  
+        async function fetch(){            
+            newGame(new Game(await fetchWordList()))            
         }
         fetch()     
     },[])
@@ -28,7 +27,7 @@ const GameArea =({ navigation }) => {
     }
 
     return (
-        <View  style={{ flex: 1, flexDirection: 'column' }} >
+        <View  style={[styles.gameArea]} >
             <GameBoard game={game}/>
             <WinBoard  game={game} pop={navigation} />
             <GameKeyboard  game={game} renderHandler={renderHandler} />

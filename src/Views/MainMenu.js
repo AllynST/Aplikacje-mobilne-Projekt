@@ -1,31 +1,33 @@
 import { StyleSheet, Text, View ,Button , StatusBar} from 'react-native';
-
+import { colorPalette } from '../sharedStyles';
+import styles from '../sharedStyles'
 function MainMenu({navigation}){
     return(
-        <View>
+        <View style={styles.container}>
 
-        <Text >Wordle</Text>
+        <Text>Wordle</Text>
        
         <Button 
         onPress = {()=>{navigation.navigate("GamePage")}}
         title="Play now!"
-        color="#D7D3D3"
+        color="#00E8FC"
         />
         <Button 
         onPress = {()=>{navigation.navigate("SettingsPage")}}
         title="Settings"
-        color="#D7D3D3"
+        color="#00E8FC"
         />
   
        <Button 
         onPress = {()=>{navigation.navigate("AboutPage")}}
         title="About"
-        color="#D7D3D3"
+        width="100"        
+        color="#00E8FC"
         />   
         <Button 
         onPress = {()=>{navigation.navigate("HistoryPage")}}
         title="History"
-        color="#D7D3D3"
+        color="#00E8FC"
         />         
         
         <StatusBar style="auto" />

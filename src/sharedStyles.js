@@ -18,19 +18,31 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    
-    gameBoard:{
-        
-        flex:3,
-        
+    backgroundColor:{
+      flex:1,
+      backgroundColor:colorPalette.mainBackground
+    },
+    keyboardArea:{
+      flex:1,
+      flexDirection: 'column'
+    },
+    gameArea:{
+      flex: 1, 
+      flexDirection: 'column',
+      justifyContent:"center", 
+      backgroundColor:colorPalette.mainBackground,
+      padding:5,
+      paddingBottom:40
+      
+    },
+    gameBoard:{        
+        flex:3,        
     },
     gameRow:{
         padding: 4,
-        flex:1,
-        
+        flex:1,        
         flexDirection:'row',
-        justifyContent:'center',
-        
+        justifyContent:'center',        
         gap:5      
        
     
@@ -39,7 +51,7 @@ const styles = StyleSheet.create({
     gameBoardSquare:(color)=>({
         borderWidth:1,
         borderRadius:5,
-        borderColor:colorPalette.white,
+        // borderColor:colorPalette.white,
         width:50,
         height:50,
         textAlign:'center',

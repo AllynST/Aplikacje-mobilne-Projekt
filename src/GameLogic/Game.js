@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import styles, { colorPalette } from '../sharedStyles'
 import { fetchWordList } from './helpers';
+import GameLetterSquare from '../Components/GameLetterSquare';
 
 
 const LetterState = {
@@ -38,7 +39,7 @@ class Game {
         return this.Board.map((row) => (
             <View style={styles.gameRow} key={`${Math.floor(Math.random() * 100000)}`}>
 
-                {row.map((letterBox) => <Text key={`${Math.floor(Math.random() * 100000)}`} style={styles.gameBoardSquare(letterBox.state)}>{letterBox.letter}</Text>)}
+                {row.map((letterBox) => <GameLetterSquare key={`${Math.floor(Math.random() * 100000)}`} letterBox ={letterBox}/>)}
 
             </View>
         ));
@@ -96,13 +97,13 @@ class Game {
         this.isPopupVisible = false;
     }
     removeLetter = (letter) => {
-        let curr = this.Board[this.currentRow][this.currentLetter]
+        let curr = this.Board[this.currentRow][this.currentLetter].letter
         if (this.currentLetter == 0) return
         if (curr === " ") {
-            this.Board[this.currentRow][this.currentLetter - 1] = " ";
+            this.Board[this.currentRow][this.currentLetter - 1].letter = " ";
         }
         else {
-            this.Board[this.currentRow][this.currentLetter] = " ";
+            this.Board[this.currentRow][this.currentLetter].letter = " ";
         }
 
         this.currentLetter--;
@@ -121,8 +122,4 @@ class LetterBox {
         this.letter = letter;
     }
 
-
-    changeState(LetterState) {
-        this.state = LetterState
-    }
 }
