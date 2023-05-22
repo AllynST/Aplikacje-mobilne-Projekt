@@ -36,17 +36,6 @@ function MainMenu({ navigation, route }) {
       </View>
   )
 }
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    textAlign: "center",
-    fontWeight: "bold",
-    marginBottom: 10
-  },
-  welcomeText: {
-    fontSize: 25,
-    fontWeight: "bold",
-    marginTop: 5
-  }
-});
+
+
 export default MainMenu;

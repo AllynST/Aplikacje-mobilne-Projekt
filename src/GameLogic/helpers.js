@@ -1,6 +1,8 @@
+const serverIP = "http://192.168.0.151:8000"
+
 export async function fetchWordList(){   
 
-        let wordArray = fetch("http://192.168.0.151:8000/words",{
+        let wordArray = fetch(`${serverIP}/words`,{
             headers: {               
                 "Content-Type": "text/plain;charset=UTF-8"
               },
@@ -13,7 +15,7 @@ export async function fetchWordList(){
 }
 export async function addRecord(record) {
     try {
-        const response = await fetch('http://192.168.2.109:8000/history', {
+        const response = await fetch(`${serverIP}/history`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +35,7 @@ export async function addRecord(record) {
 
 export async function GetHistory() {
 
-    let history = fetch("http://192.168.2.109:8000/history", {
+    let history = fetch(`${serverIP}/history`, {
         headers: {
             "Content-Type": "text/plain;charset=UTF-8"
         },
