@@ -8,7 +8,7 @@ import AboutPage from './src/Views/AboutPage';
 import GameArea from './src/Views/GameArea';
 import SettingsPage from './src/Views/SettingsPage';
 import HistoryPage from './src/Views/HistoryPage';
-
+import SplashScreen from './src/Views/SplashScreen';
 
 
 export default function App() {
@@ -18,7 +18,14 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+
+       
+      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Home" component={MainMenu} />
         <Stack.Screen name="GamePage"  component={GameArea}/>
         <Stack.Screen name="AboutPage"  component={AboutPage} />

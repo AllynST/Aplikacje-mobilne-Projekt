@@ -1,11 +1,92 @@
 {
-    "words": [
-     "TOMEK",
-     "KASIA",
-     "FILIP",
-     "MARIA",
-     "ZUZIA",
-     "MAREK",
-     "ŁUCJA"
-    ]
+  "words": [
+    "TOMEK",
+    "KASIA",
+    "FILIP",
+    "MARIA",
+    "ZUZIA",
+    "MAREK",
+    "ŁUCJA"
+  ],
+  "history": [
+    {
+      "word": "FILIP",
+      "number": 1,
+      "who": "NickName1",
+      "id": 1
+    },
+    {
+      "word": "FILIP",
+      "number": 2,
+      "who": "NickName2",
+      "id": 2
+    },
+    {
+      "word": "FILIP",
+      "number": 3,
+      "who": "NickName3",
+      "id": 3
+    },
+    {
+      "word": "FILIP",
+      "number": 4,
+      "who": "NickName4",
+      "id": 4
+    },
+    {
+      "word": "FILIP",
+      "number": 5,
+      "who": "NickName5",
+      "id": 5
+    },
+    {
+      "word": "FILIP",
+      "number": 5,
+      "who": "NickName6",
+      "id": 6
+    },
+    {
+      "word": "MAREK",
+      "number": 1,
+      "id": 7
+    },
+    {
+      "word": "KASIA",
+      "number": 1,
+      "id": 8
+    },
+    {
+      "word": "FILIP",
+      "number": 1,
+      "id": 9
+    },
+    {
+      "word": "FILIP",
+      "number": 2,
+      "id": 10
+    },
+    {
+      "word": "KASIA",
+      "number": 2,
+      "id": 11
+    },
+    {
+      "word": "ZUZIA",
+      "number": 3,
+      "who": "Tupty",
+      "id": 12
+    },
+    {
+      "word": "KASIA",
+      "number": 2,
+      "who": "Grupy",
+      "id": 13
+    },
+    {
+      "word": "FILIP",
+      "number": 2,
+      "who": "Ryne",
+      "id": 14
+    }
+  ]
 }

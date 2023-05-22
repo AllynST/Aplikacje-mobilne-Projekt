@@ -5,7 +5,7 @@ const WinBoard = (props) =>{
 
     const handlePopupClose = () => {
         props.game.hidePopupWindow();
-        props.pop.navigate('Home')
+        props.pop.navigate('Splash')
       };
     return(<>
      
