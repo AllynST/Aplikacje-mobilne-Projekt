@@ -14,7 +14,7 @@ const TableComponent = () => {
 
     const fetchData = async () => {
         try {
-            const sortedData = (await GetHistory()).sort((a, b) => a.tries - b.tries);            
+            const sortedData = (await GetHistory()).sort((a, b) => b.tries - a.tries);            
             
             setTop(TopThreeAvg(sortedData))
             const slicedData = sortedData.slice(0, 10);

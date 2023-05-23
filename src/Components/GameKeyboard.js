@@ -5,23 +5,49 @@ const GameKeyboard = (props) =>{
    
     const letters = [["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Z","X","C","V","B","N","M"]];
 
-    return(
- 
-   <View style={{flex:1}}>
-        <View style={styles.keyboardRow}>        
-            {letters[0].map(letter =><KeyboardSquare action={props.game.addLetterToRow} renderHandler = {props.renderHandler} key={letter} letter = {letter} />)}        
+    return (
+        <View style={{ flex: 1 }}>
+            <View style={styles.keyboardRow}>
+                {letters[0].map((letter) => (
+                    <KeyboardSquare
+                        style={styles.keyboardSquare}
+                        action={props.game.addLetterToRow}
+                        renderHandler={props.renderHandler}
+                        key={letter}
+                        letter={letter}
+                    />
+                ))}
+            </View>
+            <View style={styles.keyboardRow}>
+                {letters[1].map((letter) => (
+                    <KeyboardSquare
+                        style={styles.keyboardSquare}
+                        action={props.game.addLetterToRow}
+                        renderHandler={props.renderHandler}
+                        key={letter}
+                        letter={letter}
+                    />
+                ))}
+            </View>
+            <View style={styles.keyboardRow}>
+                <KeyboardSquare
+                    style={styles.keyboardSquare}
+                    action={props.game.removeLetter}
+                    renderHandler={props.renderHandler}
+                    letter={"<--"}
+                />
+                {letters[2].map((letter) => (
+                    <KeyboardSquare
+                        style={styles.keyboardSquare}
+                        action={props.game.addLetterToRow}
+                        renderHandler={props.renderHandler}
+                        key={letter}
+                        letter={letter}
+                    />
+                ))}
+            </View>
         </View>
-        <View style={styles.keyboardRow}>        
-            {letters[1].map(letter =><KeyboardSquare action={props.game.addLetterToRow} renderHandler = {props.renderHandler} key={letter} letter = {letter} />)}        
-        </View>
-        <View style={styles.keyboardRow}>   
-            <KeyboardSquare action={props.game.removeLetter} renderHandler={props.renderHandler} letter ={"<--"} />
-            {letters[2].map(letter =><KeyboardSquare action={props.game.addLetterToRow} renderHandler = {props.renderHandler} key={letter} letter = {letter} />)}        
-            <KeyboardSquare action={props.game.submitRow} renderHandler={props.renderHandler}  letter ={"Enter"} />
-        </View>
-    </View>
-       
-    )
+    );
 }
 
 const KeyboardSquare = (props) =>{

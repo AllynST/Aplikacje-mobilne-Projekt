@@ -54,8 +54,8 @@ class Game {
     addLetterToRow = (letter) => {
 
         this.Board[this.currentRow][this.currentLetter].letter = letter;
-        if (this.currentLetter > 3) return;
-        this.currentLetter++;
+        this.currentLetter++
+        if (this.currentLetter === 5) this.submitRow();      
 
     }
 

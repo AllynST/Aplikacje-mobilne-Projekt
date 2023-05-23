@@ -6,7 +6,7 @@
     "MARIA",
     "ZUZIA",
     "MAREK",
-    "ŁUCJA"
+    "LUCJA"
   ],
   "history": [
     {
@@ -40,10 +40,28 @@
       "id": 5
     },
     {
-      "word": "KASIA",
-      "tries": 1,
-      "name": "Tc7rf7rc",
-      "id": 6
+      "word": "MAREK",
+      "tries": 2,
+      "name": "Franek",
+      "id": 7
+    },
+    {
+      "word": "ZUZIA",
+      "tries": 3,
+      "name": "Cc",
+      "id": 8
+    },
+    {
+      "word": "MAREK",
+      "tries": 3,
+      "name": "Twst",
+      "id": 9
+    },
+    {
+      "word": "ZUZIA",
+      "tries": 5,
+      "name": "Twst",
+      "id": 10
     }
   ]
 }

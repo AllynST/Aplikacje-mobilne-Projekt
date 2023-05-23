@@ -34,7 +34,7 @@ function MainMenu({ navigation,route,props}) {
 
         <Pressable onPress={()=>{ { navigation.navigate("AboutPage") }}}>
           <View style={styles.mainMenuBtn}>
-            <Text style={styles.mainMenuBtnTxt}>About</Text>
+            <Text style={styles.mainMenuBtnTxt}>Instructions</Text>
           </View>
         </Pressable>
 
