@@ -1,0 +1,49 @@
+{
+  "words": [
+    "TOMEK",
+    "KASIA",
+    "FILIP",
+    "MARIA",
+    "ZUZIA",
+    "MAREK",
+    "ŁUCJA"
+  ],
+  "history": [
+    {
+      "word": "FILIP",
+      "tries": 1,
+      "name": "Allyn",
+      "id": 1
+    },
+    {
+      "word": "KASIA",
+      "tries": 2,
+      "name": "Allyn",
+      "id": 2
+    },
+    {
+      "word": "MARIA",
+      "tries": 1,
+      "name": "Marek",
+      "id": 3
+    },
+    {
+      "word": "MARIA",
+      "tries": 3,
+      "name": "Marek",
+      "id": 4
+    },
+    {
+      "word": "FILIP",
+      "tries": 1,
+      "name": "Marek",
+      "id": 5
+    },
+    {
+      "word": "KASIA",
+      "tries": 1,
+      "name": "Tc7rf7rc",
+      "id": 6
+    }
+  ]
+}
