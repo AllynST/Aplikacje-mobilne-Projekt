@@ -13,11 +13,11 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View style={styles.containerSplashScreen}>
       <Text style={styles.mainHeader}> Wordly</Text>
-      <Text style={styles.secondaryHeader}>Łukasz Zaraska</Text>
-      <Text style={styles.secondaryHeader}>Tomasz Rożnowski</Text>
+      <Text style={[styles.secondaryHeader,{fontSize:15}]}>Łukasz Zaraska & Tomasz Rożnowski</Text>
+     
       <TextInput
         style={styles.input}
-        placeholder="Enter nick"
+        placeholder="Please enter your nickname"
         value={nickname}
         onChangeText={setNickname}
       />

@@ -1,11 +1,15 @@
 import { StyleSheet } from 'react-native';
 
-export const ChangeColor = (type) => {
-  if (!type) {
-    colorPalette = { ...colorPaletteDalt }
-  }else{
-    colorPalette = { ...NormalPalette };
-  }
+export const ChangeColor = (colorScheme) => {
+  console.log("switched to: ",colorScheme)
+  switch(colorScheme){
+    case "normal":
+      colorPalette = { ...NormalPalette };
+    break;
+    case "dalto":
+      colorPalette = { ...colorPaletteDalt }
+    break;
+  } 
 }
 export let NormalPalette = {
   "mainBackground": "#283044",

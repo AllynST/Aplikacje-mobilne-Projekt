@@ -3,11 +3,11 @@ import { ChangeColor } from '../sharedStyles'
 import { Switch } from 'react-native-paper';
 import styles from '../sharedStyles'
 
-const SettingsPage = ({ navigator},props) => {
+const SettingsPage = ({ navigator},route) => {
     const colorChanged = () => {
-        console.log(props);
-        ChangeColor();
-        props.colorChangeHandler();
+        console.log(route.params)
+        ChangeColor("dalto");
+        //  route.params.colorChangeHandler();
     }
     return (
         <>

@@ -2,8 +2,15 @@ import { StyleSheet, Text, View, Button, StatusBar,Pressable } from 'react-nativ
 import { colorPalette } from '../sharedStyles';
 import styles from '../sharedStyles'
 
-function MainMenu({ navigation, route }) {
+function MainMenu({ navigation,route,props}) {
   const { nickname } = route.params;
+  
+
+
+  const temp = () =>{
+    props.colorChangeHandler
+  }
+
   return (
     <View style={styles.container}>
 
@@ -19,11 +26,11 @@ function MainMenu({ navigation, route }) {
           </View>
         </Pressable>
 
-        <Pressable onPress={()=>{ { navigation.navigate("SettingsPage") }}}>
+        {/* <Pressable onPress={()=>{ { navigation.navigate("SettingsPage",{colorChangeHandler:4 })}}}>
           <View style={styles.mainMenuBtn}>
             <Text style={styles.mainMenuBtnTxt}>Settings</Text>
           </View>
-        </Pressable>
+        </Pressable> */}
 
         <Pressable onPress={()=>{ { navigation.navigate("AboutPage") }}}>
           <View style={styles.mainMenuBtn}>
