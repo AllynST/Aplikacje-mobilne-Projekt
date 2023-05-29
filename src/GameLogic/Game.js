@@ -4,11 +4,6 @@ import styles, { colorPalette } from "../sharedStyles";
 import { fetchWordList } from "./helpers";
 import GameLetterSquare from "../Components/GameLetterSquare";
 
-import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
-import { addRecord } from './helpers';
-import styles, { colorPalette } from '../sharedStyles'
-import GameLetterSquare from '../Components/GameLetterSquare';
-
 
 export const LetterState = {
     

@@ -18,7 +18,7 @@ describe('Game', () => {
             expect(game.currentRow).toBe(0);
             expect(game.currentLetter).toBe(0);
             expect(game.checkRowCount).toBe(0);
-            expect(game.Board.length).toBe(7);
+            expect(game.Board.length).toBe(6);
             expect(game.Board[0].length).toBe(5);
             expect(game.isPopupVisible).toBe(false);
         });
