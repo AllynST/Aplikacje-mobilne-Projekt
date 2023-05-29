@@ -26,12 +26,6 @@ function MainMenu({ navigation,route,props}) {
           </View>
         </Pressable>
 
-        {/* <Pressable onPress={()=>{ { navigation.navigate("SettingsPage",{colorChangeHandler:4 })}}}>
-          <View style={styles.mainMenuBtn}>
-            <Text style={styles.mainMenuBtnTxt}>Settings</Text>
-          </View>
-        </Pressable> */}
-
         <Pressable onPress={()=>{ { navigation.navigate("AboutPage") }}}>
           <View style={styles.mainMenuBtn}>
             <Text style={styles.mainMenuBtnTxt}>Instructions</Text>

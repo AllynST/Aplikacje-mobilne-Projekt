@@ -1,4 +1,6 @@
-const serverIP = "http://192.168.0.45:8000";
+
+const serverIP = "http://192.168.2.109:8000"
+
 
 export async function fetchWordList(){   
 
@@ -29,7 +31,7 @@ export async function addRecord(record) {
             console.error('Wystąpił błąd podczas dodawania rekordu do bazy danych.');
         }
     } catch (error) {
-        console.error('Wystąpił błąd podczas komunikacji z serwerem JSON.');
+       console.error('Wystąpił błąd podczas komunikacji z serwerem JSON.');
     }
 };
 

@@ -34,7 +34,7 @@ const GameArea = ({ navigation, route }) => {
     return (
 
         <View  style={[styles.gameArea]} >
-            <GameBoard game={game}/>
+            <GameBoard game={game} testID="game-board"/>
             <WinBoard  game={game} pop={navigation} />
             <GameKeyboard  game={game} renderHandler={renderHandler} />
         </View>
