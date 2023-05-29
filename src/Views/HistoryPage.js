@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 const HistoryPage = ({navigator}) =>{
     return(
     <>
-    <TableComponent></TableComponent>
+    <TableComponent ></TableComponent>
     </>)
 }
 

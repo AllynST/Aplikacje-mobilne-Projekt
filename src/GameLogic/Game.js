@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import { addRecord } from './helpers';
 import styles, { colorPalette } from '../sharedStyles'
-import { fetchWordList } from './helpers';
 import GameLetterSquare from '../Components/GameLetterSquare';
 
 
-const LetterState = {
+export const LetterState = {
     
     GoodPosition: colorPalette.Correct,
     BadPosition:  colorPalette.Warning,
@@ -118,7 +117,7 @@ class Game {
 export default Game;
 
 
-class LetterBox {
+export class LetterBox {
     state = LetterState.BadLetter
     letter = " "
 
