@@ -10,7 +10,7 @@ const GameKeyboard = (props) =>{
             <View style={styles.keyboardRow}>
                 {letters[0].map((letter) => (
                     <KeyboardSquare
-                        style={styles.keyboardSquare}
+                       
                         action={props.game.addLetterToRow}
                         renderHandler={props.renderHandler}
                         key={letter}
@@ -20,8 +20,7 @@ const GameKeyboard = (props) =>{
             </View>
             <View style={styles.keyboardRow}>
                 {letters[1].map((letter) => (
-                    <KeyboardSquare
-                        style={styles.keyboardSquare}
+                    <KeyboardSquare                        
                         action={props.game.addLetterToRow}
                         renderHandler={props.renderHandler}
                         key={letter}
@@ -30,15 +29,14 @@ const GameKeyboard = (props) =>{
                 ))}
             </View>
             <View style={styles.keyboardRow}>
-                <KeyboardSquare
-                    style={styles.keyboardSquare}
+                <KeyboardSquare                    
                     action={props.game.removeLetter}
                     renderHandler={props.renderHandler}
                     letter={"<--"}
                 />
                 {letters[2].map((letter) => (
-                    <KeyboardSquare
-                        style={styles.keyboardSquare}
+                    
+                    <KeyboardSquare                        
                         action={props.game.addLetterToRow}
                         renderHandler={props.renderHandler}
                         key={letter}
@@ -62,7 +60,7 @@ const KeyboardSquare = (props) =>{
     return(
         <Pressable key={props.letter} style={styles.keyboardSquare} value={props.letter} onPress={handleKeyPress}>
             
-            <Text style={styles.keyboardSquare} key={props.letter}>{props.letter}</Text>
+            <Text style={styles.keyboardInner} key={props.letter}>{props.letter}</Text>
            
         </Pressable>
     )

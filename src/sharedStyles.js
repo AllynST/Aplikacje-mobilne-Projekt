@@ -149,14 +149,18 @@ const styles = StyleSheet.create({
     color: 'white',
     width: 30,
     height: 30,
-    flex: 1,
+    flex: 1,    
     alignContent: 'center',
     justifyContent: 'center',
     backgroundColor: colorPalette.keysColor,
     textAlign: 'center',
     lineHeight: 30,
     borderRadius: 2,
-
+  },
+  
+  keyboardInner:{
+    color:'white',
+    textAlign:'center'
 
   },
 

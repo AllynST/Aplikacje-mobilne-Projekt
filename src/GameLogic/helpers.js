@@ -1,4 +1,4 @@
-const serverIP = "http://192.168.43.101:8000";
+const serverIP = "http://192.168.0.45:8000";
 
 export async function fetchWordList(){   
 
