@@ -25,7 +25,7 @@ describe('TableComponent', () => {
     });
   
     test('renders top 3 players', async () => {
-      const { getByText, queryByText } = render(<TableComponent />);
+      const { getByText } = render(<TableComponent />);
       await waitFor(() => expect(GetHistory).toHaveBeenCalled());
   
       expect(getByText('TOP 3')).toBeDefined();

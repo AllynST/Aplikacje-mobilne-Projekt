@@ -4,7 +4,7 @@ describe('Game', () => {
     let game;
 
     beforeEach(() => {
-        game = new Game('testword', 'John');
+        game = new Game('testword', 'TOMEK');
     });
 
     afterEach(() => {
@@ -14,7 +14,7 @@ describe('Game', () => {
     describe('constructor', () => {
         it('should initialize game properties correctly', () => {
             expect(game.CorrectWord).toBe('testword');
-            expect(game.nickName).toBe('John');
+            expect(game.nickName).toBe('TOMEK');
             expect(game.currentRow).toBe(0);
             expect(game.currentLetter).toBe(0);
             expect(game.checkRowCount).toBe(0);
