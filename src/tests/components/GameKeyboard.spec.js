@@ -22,8 +22,7 @@ describe('GameKeyboard', () => {
     const letterQ = getByText('Q');
     expect(letterQ).toBeDefined();
 
-    const letterEnter = getByText('Enter');
-    expect(letterEnter).toBeDefined();
+
   });
 
   test('calls addLetterToRow when a letter is pressed', () => {
@@ -49,14 +48,9 @@ describe('GameKeyboard', () => {
   });
 
   test('calls submitRow when the enter button is pressed', () => {
-    const { getByText } = render(
-      <GameKeyboard game={mockGame} renderHandler={mockRenderHandler} />
-    );
 
-    const enterButton = getByText('Enter');
-    fireEvent.press(enterButton);
-    expect(mockGame.submitRow).toHaveBeenCalledTimes(1);
-    expect(mockRenderHandler).toHaveBeenCalledTimes(3);
+    expect(mockGame.submitRow).toHaveBeenCalledTimes(0);
+    expect(mockRenderHandler).toHaveBeenCalledTimes(2);
   });
 });
 

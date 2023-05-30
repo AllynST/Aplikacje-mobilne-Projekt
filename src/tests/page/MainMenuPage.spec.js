@@ -10,7 +10,7 @@ describe('MainMenu', () => {
     expect(getByText('Wordle')).toBeTruthy();
     expect(getByText(`Current player: ${nickname}`)).toBeTruthy();
     expect(getByText('Play now!')).toBeTruthy();
-    expect(getByText('About')).toBeTruthy();
+    expect(getByText('Instructions')).toBeTruthy();
     expect(getByText('History')).toBeTruthy();
     expect(getByText('Tomasz Rożnowski & Łukasz Zaraska')).toBeTruthy();
   });
@@ -43,7 +43,7 @@ describe('MainMenu', () => {
       <MainMenu navigation={navigationMock} route={routeMock} />
     );
     
-    const aboutButton = getByText('About');
+    const aboutButton = getByText('Instructions');
     fireEvent.press(aboutButton);
     
     expect(navigationMock.navigate).toHaveBeenCalledWith('AboutPage');

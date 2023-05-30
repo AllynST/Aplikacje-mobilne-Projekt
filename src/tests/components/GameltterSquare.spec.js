@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render} from '@testing-library/react-native';
 import GameLetterSquare from './../../Components/GameLetterSquare';
-import { StyleSheet, Text } from 'react-native';
+
 
 describe('GameLetterSquare', () => {
   const mockLetterBox = {
@@ -15,8 +15,7 @@ describe('GameLetterSquare', () => {
     expect(letterElement).toBeDefined();
   });
 
- 
-
+  
 });
 
 
